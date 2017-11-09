@@ -75,4 +75,9 @@ class Enclosure
 
         return false;
     }
+
+    public function getSecurities(): Collection
+    {
+        return $this->securities;
+    }
 }
