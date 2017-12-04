@@ -1,6 +1,12 @@
 imports:
     - { resource: config_dev.yml }
 
+services:
+    _defaults:
+        public: true
+
+    test.AppBundle\Service\EnclosureBuilderService: '@AppBundle\Service\EnclosureBuilderService'
+
 framework:
     test: ~
     session:
@@ -14,3 +20,7 @@ web_profiler:
 
 swiftmailer:
     disable_delivery: true
+
+doctrine:
+    dbal:
+        url: 'sqlite:///%kernel.project_dir%/var/data/test.sqlite'
