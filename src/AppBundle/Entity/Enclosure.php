@@ -43,6 +43,11 @@ class Enclosure
         }
     }
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
     public function getDinosaurs(): Collection
     {
         return $this->dinosaurs;
@@ -72,7 +77,7 @@ class Enclosure
             || $this->dinosaurs->first()->isCarnivorous() === $dinosaur->isCarnivorous();
     }
 
-    private function isSecurityActive(): bool
+    public function isSecurityActive(): bool
     {
         foreach ($this->securities as $security) {
             if ($security->getIsActive()) {
@@ -86,5 +91,10 @@ class Enclosure
     public function getSecurities(): Collection
     {
         return $this->securities;
+    }
+
+    public function getDinosaurCount(): int
+    {
+        return $this->dinosaurs->count();
     }
 }
